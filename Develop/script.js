@@ -17,9 +17,23 @@ function generatePassword() {
     "How long do you want your password to be? It must be 8-124"
   );
   if (length < 8 || length > 124) {
-    return alert ("Your password isn't the right length")
+    return alert("Your password isn't the right length")
   }
+  var hasLowerCase = confirm(
+    "Do you want lower case in your password"
+  );
+  var length = comfirm(
+    "How long do you want your password to be? It must be 8-124"
+  );
 }
+var builtString = ''; //'11111111'
+for (var i = 0; i < 10; i++) {
+  var characters = 1; //generate some random character
+  builtString.length * characters;
+}
+
+
+
 
 // Get references to the #generate element
 
@@ -27,7 +41,7 @@ function generatePassword() {
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  generatePassword();
+
   passwordText.value = password;
 }
 
