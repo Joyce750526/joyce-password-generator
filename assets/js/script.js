@@ -16,7 +16,6 @@ function generatePassword() {
   if (length < 8 || length > 124) {
     return alert("Your password isn't the right length")
   }
-
   var hasLowerCase = confirm(
     "Do you want lowercase letters in your password?");
 
@@ -30,28 +29,27 @@ function generatePassword() {
     "Do you want symbols in your password?");
 
   for (var i = 0; i < length; i++) {
-    var characters = 1; 
+    var characters = 1;
     genPwd = genPwd + characters;
   }
   console.log(genPwd);
   for (var i = 0; i < length; i++);
-  
+
   var randomNum = Math.floor(Math.random() * pwdOptions.length);
   genPwd = genPwd.concat(pwdOptions[randomNum]);
 
   return genPwd;
+}
 
+// 3 empty arrays and 1 empty string to store user's inputs for later use.
+var possibleCharacxters = [];
+var uppercaseLetters = [];
+var genPwd = "";
+var pwdOptions = [];
 
-  // 3 empty arrays and 1 empty string to store user's inputs for later use.
-  var possibleCharacxters = [];
-  var uppercaseLetters = [];
-  var genPwd = "";
-  var pwdOptions = [];
-
-  // This is to concatenate a desired characters for user's preferred input
-  if (hasLowerCase === true) {
-    pwdOptions = pwdOptions.concat(lowercase);
-  }
+// This is to concatenate a desired characters for user's preferred input
+if (hasLowerCase === true) {
+  pwdOptions = pwdOptions.concat(lowercase);
 
   if (hasUpperCase === true) {
     pwdOptions = pwdOptions.concat(uppercase);
@@ -59,19 +57,18 @@ function generatePassword() {
 
   if (hasSymbols === true) {
     pwdOptions = pwdOptions.concat(symbols);
-  }
-  if (hasNumbers === true) {
-    pwdOptions = pwdOptions.concat(numbers);
-  }
 
-  // Write password to the #password input
-  function writePassword() {
-    var generateBtn = document.querySelector("generate"); function writePassword() {
-      var password = generatePassword();
-      var passwordText = document.querySelector("#password");
-      passwordText.value = password;
+    if (hasNumbers === true) {
+      pwdOptions = pwdOptions.concat(numbers);
     }
-  }
-  // Add event listener to generate button
-  generateBtn.addEventListener("click", writePassword);
-}
+
+    // Write password to the #password input
+    function writePassword() {
+      var generateBtn = document.querySelector("generate"); function writePassword() {
+        var password = generatePassword();
+        var passwordText = document.querySelector("#password");
+        passwordText.value = password;
+      }
+      // Add event listener to generate button
+      generateBtn.addEventListener("click", writePassword);
+    

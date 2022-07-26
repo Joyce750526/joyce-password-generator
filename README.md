@@ -7,6 +7,14 @@
 
 ## JavaScript:
 
+* use variables
+* console.log
+* function generatePassword()
+* prompt 
+* loop
+* empty array for user's preferred input
+* var generateBtn 
+* enerateBtn.addEventListener
 
 
 ---
