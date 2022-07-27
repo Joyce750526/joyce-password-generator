@@ -16,6 +16,22 @@ function generatePassword() {
   if (length < 8 || length > 124) {
     return alert("Your password isn't the right length")
   }
+
+  // This is to concatenate a desired characters for user's preferred input
+if (hasLowerCase === true) {
+  pwdOptions = pwdOptions.concat(lowercase);
+}
+  if (hasUpperCase === true) {
+    pwdOptions = pwdOptions.concat(uppercase);
+  };
+
+  if (hasSymbols === true) {
+    pwdOptions = pwdOptions.concat(symbols);
+  };
+
+    if (hasNumbers === true) {
+      pwdOptions = pwdOptions.concat(numbers);
+    };
   var hasLowerCase = confirm(
     "Do you want lowercase letters in your password?");
 
@@ -39,6 +55,7 @@ function generatePassword() {
   genPwd = genPwd.concat(pwdOptions[randomNum]);
 
   return genPwd;
+  
 }
 
 // 3 empty arrays and 1 empty string to store user's inputs for later use.
@@ -47,20 +64,7 @@ var uppercaseLetters = [];
 var genPwd = "";
 var pwdOptions = [];
 
-// This is to concatenate a desired characters for user's preferred input
-if (hasLowerCase === true) {
-  pwdOptions = pwdOptions.concat(lowercase);
 
-  if (hasUpperCase === true) {
-    pwdOptions = pwdOptions.concat(uppercase);
-  }
-
-  if (hasSymbols === true) {
-    pwdOptions = pwdOptions.concat(symbols);
-
-    if (hasNumbers === true) {
-      pwdOptions = pwdOptions.concat(numbers);
-    }
 
     // Write password to the #password input
     function writePassword() {
@@ -71,4 +75,4 @@ if (hasLowerCase === true) {
       }
       // Add event listener to generate button
       generateBtn.addEventListener("click", writePassword);
-    
+    };
